@@ -17,8 +17,6 @@ function App() {
    <Header />
 
    <Routes>
-
-   <Route path = "/" element = {<Login />} />
    <Route path = "/register" element = {<Register />} />
    <Route path = "/dashboard" element = {<Dashboard />} />
    <Route path = "/password-reset" element = {<PasswordReset />} />
@@ -28,6 +26,7 @@ function App() {
    <Route path = "/tableview" element = {<TableViewer />} />
    <Route path = "/analytics" element = {<Analytics />} />
    <Route path = "*" element = {<ErrorPage />} />
+   <Route path = "/" element = {<Login />} />
    </Routes>
 
    
