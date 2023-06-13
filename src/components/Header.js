@@ -11,33 +11,28 @@ import {BACKEND_URL} from "../staticData.js"
 
 
 const Header = () =>{
- 
- //for menu
- const{loginData, setLoginData} = useContext(LoginContext);
- const navigate = useNavigate();
+    //variables and functions for menu
+    const{loginData, setLoginData} = useContext(LoginContext);
+    const navigate = useNavigate();
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const openMenu = Boolean(anchorEl);
 
-const [anchorEl, setAnchorEl] = React.useState(null);
-  const openMenu = Boolean(anchorEl);
+    const handleClick = (event) => {
+     setAnchorEl(event.currentTarget); 
+    };
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
    
-
-//for logging out
-   const logoutUser = async ()=>{
-
+   //for logging out
+    const logoutUser = async ()=>{
    	let token = localStorage.getItem("access-token");
    	if(!token)
    		navigate("*")
-   
-    const res = await axios.get(`${BACKEND_URL}/user/logout`,
-    	{
-                headers: 
+     const res = await axios.get(`${BACKEND_URL}/user/logout`,
+    	{              
+	     headers: 
                 {
                     "access-token": token
                 },
@@ -45,64 +40,53 @@ const [anchorEl, setAnchorEl] = React.useState(null);
         }
     	);
      
-
-    if(res.status == 400)
-    {
-    	navigate("*")
-    }
-    else
-    {
+     if(res.status == 400)
+       {
+    	  navigate("*")
+        }
+     else
+      {
     	console.log("user logout");
     	localStorage.removeItem("access-token");
     	setLoginData(false);
     	navigate("/")
-    }
-
+      }
    }
 
 //for taking to error page
     const goError = () => {
         navigate("*")
     }
-
-
  
-
-
-	return(
+return(
          <header>
-         <nav>
-          
-         {loginData ? <SideNav /> :""}
-         <h1> SimpleLink </h1>
-         
-         <div className="avtar">
-         
-         {loginData ?  <Avatar onClick={handleClick}>{ loginData.fname.charAt(0).toUpperCase() }</Avatar> : <Avatar onClick={handleClick}/>}
-         
-         </div>
-
-         <Menu
-            id="demo-positioned-menu"
-            aria-labelledby="demo-positioned-button"
-            anchorEl={anchorEl}
-            open={openMenu}
-            onClose={handleClose}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'center',
+           <nav>  
+             {loginData ? <SideNav /> :""}
+             <h1> SimpleLink </h1>
+             <div className="avtar">
+               {loginData ?  <Avatar onClick={handleClick}>{ loginData.fname.charAt(0).toUpperCase() }</Avatar> : <Avatar onClick={handleClick}/>} 
+             </div>
+             <Menu
+                id="demo-positioned-menu"
+                aria-labelledby="demo-positioned-button"
+                anchorEl={anchorEl}
+                open={openMenu}
+                onClose={handleClose}
+                anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+              }}
+                transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
             }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'left',
-            }}
-          >
-          {loginData ? 
+            >
+            {loginData ? 
              (<>
-             <MenuItem onClick={() => {
-             	logoutUser()
-             	handleClose()}}>Logout</MenuItem>
-             </>)
+                <MenuItem onClick={() => {
+             	 logoutUser()
+             	 handleClose()}}>Logout</MenuItem>
+              </>)
              :
              (<>
              <MenuItem onClick={() => {
@@ -112,11 +96,9 @@ const [anchorEl, setAnchorEl] = React.useState(null);
               </MenuItem>
              </>)
           }
-
          </Menu>
-         </nav>
-         
-         </header>
+        </nav>  
+      </header>
  )
 }
 
