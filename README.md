@@ -25,5 +25,14 @@ frontend deployemnt url link --> https://urlshorten-frontend.netlify.app
 
 backend source code --> https://github.com/snehanagalingaiah/urlshortener-backend
 
+## Screenshots
+
+![Screenshot (311)](https://github.com/snehanagalingaiah/urlshortener-frontend/assets/22450956/aa5af6c9-cf80-47fc-9425-2af76ffa270f)
+![Screenshot (312)](https://github.com/snehanagalingaiah/urlshortener-frontend/assets/22450956/6177e3d7-734a-43b8-8045-6726f0ce2b2c)
+![Screenshot (314)](https://github.com/snehanagalingaiah/urlshortener-frontend/assets/22450956/ce139686-0f7d-476e-ba8c-59febb7b9a2f)
+![Screenshot (315)](https://github.com/snehanagalingaiah/urlshortener-frontend/assets/22450956/433d3a01-6df2-46ef-86a8-f57c0bc3ccbc)
+![Screenshot (316)](https://github.com/snehanagalingaiah/urlshortener-frontend/assets/22450956/14cc4466-fabe-41e8-a32c-ab179f18b9bc)
+![Screenshot (317)](https://github.com/snehanagalingaiah/urlshortener-frontend/assets/22450956/b36cbece-47a3-49bb-a262-e184a1a29b67)
+![Screenshot (318)](https://github.com/snehanagalingaiah/urlshortener-frontend/assets/22450956/f29ef912-203c-436d-a1a9-dbc0ac371c4f)
 
 
